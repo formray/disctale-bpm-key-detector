@@ -1,12 +1,34 @@
 # disctale-bpm-key-detector
 
-The BPM and the musical key of a short clip of music, read the way
-[DISCTALE](https://disctale.app) reads them, in pure Rust. When the evidence
-does not decide, it says so instead of guessing.
+[![CI](https://github.com/formray/disctale-bpm-key-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/formray/disctale-bpm-key-detector/actions/workflows/ci.yml)
+[![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#licences-and-sources)
+[![Rust 2024](https://img.shields.io/badge/rust-2024%20edition-b7410e.svg)](Cargo.toml)
+[![BPM: Beat This!](https://img.shields.io/badge/BPM-Beat%20This!-6e7781.svg)](https://github.com/CPJKU/beat_this)
 
-*By [Formray](https://formray.io). Technology, thoughtfully.*
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.svg">
+  <img alt="disctale-bpm-key-detector: BPM and key in pure Rust, by Formray" src="docs/assets/logo-light.svg" width="480">
+</picture>
 
----
+> The BPM and the musical key of a short clip of music, in pure Rust.
+> When the evidence does not decide, it says so instead of guessing.
+
+Part of [DISCTALE](https://disctale.app), by [Formray](https://formray.io).
+
+## Features
+
+- **BPM** from [Beat This!](https://github.com/CPJKU/beat_this) (ISMIR 2024)
+  ported to Rust: no PyTorch, no Python, the official weights checked by
+  checksum.
+- **Key** from the twelve notes of the clip against profiles measured on
+  dance music, with Open Key notation; no weights, no dependencies.
+- **It abstains instead of guessing**, and names why (`unstable`,
+  `AmbiguousKey`, …). It never doubles or halves a tempo to make it fit.
+- **Pure functions** over mono samples: no decoder, no network, no files
+  except the model weights.
+- **A command-line tool**, `disctale-bpm-key`: one JSON line per file.
+- **Measured on 983 real clips**, with the numbers and the limits written
+  down below.
 
 ## What is here
 
@@ -20,14 +42,14 @@ DISCTALE, an iOS app that recognises vinyl records, runs the same code on
 its server for the tracks no catalogue knows: the BPM from `disctale-beat`,
 the key from `disctale-key`, on the 30-second preview of each track. This
 repository is that code, given to anyone who wants to use it or make it
-better; on the clips below it reads exactly what DISCTALE reads. The
-libraries are pure functions over mono samples: no decoder, no network, no
-files except the model weights.
+better; on the clips below it reads exactly what DISCTALE reads.
 
 The rule behind every choice: **a wrong value is worth less than no value.**
 Each reading either answers or names why it abstains.
 
-## Quick start
+## Usage
+
+### Command line
 
 ```sh
 git clone https://github.com/formray/disctale-bpm-key-detector.git
@@ -46,7 +68,7 @@ target/release/disctale-bpm-key --weights final0.ckpt track.f32
 `key_note` then hold the reason (for example `unstable`, `AmbiguousKey`).
 WAV files are read directly. Without `--weights` only the key is read.
 
-As a library:
+### As a library
 
 ```rust
 // Key: no weights, no dependencies.
@@ -176,9 +198,15 @@ for the key. In a Linux container with 1 CPU and 512 MiB, the BPM peaks at
   without DBN postprocessing», ISMIR 2024.
 - No code from GPL or AGPL projects, and nothing taken from closed DJ
   software.
+- The logo is drawn for this repository; its lettering is set in
+  JetBrains Mono and Inter (SIL Open Font License) and turned into outlines.
 
 ## Contributing
 
 Improvements are welcome, the key above all. See
 [CONTRIBUTING](CONTRIBUTING.md): a failing synthetic test first, then the
 bench before and after on your own clips.
+
+---
+
+<sub>Made by [Formray](https://formray.io). Technology, thoughtfully.</sub>
