@@ -1,0 +1,4 @@
+# id	bpm	key	genre      (tab-separated; lines starting with # are ignored)
+# Two made-up rows that only show the format: write your own reference.
+01	124	Am	House
+02	140.5	F#	Techno

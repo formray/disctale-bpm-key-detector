@@ -1,0 +1,14 @@
+[package]
+name = "disctale-key"
+description = "Musical key (and a tempo estimate) of a clip of mono audio, or the reason there is none. Pure Rust, no dependencies."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["audio", "music", "key-detection", "dj", "mir"]
+categories = ["multimedia::audio", "science"]
+
+[dependencies]

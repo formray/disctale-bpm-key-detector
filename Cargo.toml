@@ -1,0 +1,14 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/disctale-key",
+    "crates/disctale-beat",
+    "crates/disctale-bpm-key-detector",
+]
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+authors = ["Formray"]
+repository = "https://github.com/formray/disctale-bpm-key-detector"
+homepage = "https://github.com/formray/disctale-bpm-key-detector"

@@ -1,0 +1,23 @@
+[package]
+name = "disctale-bpm-key-detector"
+description = "Command-line BPM and key of audio clips, as DISCTALE reads them: Beat This! for the tempo, disctale-key for the key."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+license = "MIT OR Apache-2.0"
+readme = "../../README.md"
+keywords = ["audio", "music", "bpm", "key-detection", "dj"]
+categories = ["multimedia::audio", "command-line-utilities"]
+
+[[bin]]
+name = "disctale-bpm-key"
+path = "src/main.rs"
+
+[dependencies]
+disctale-beat = { version = "0.1.0", path = "../disctale-beat" }
+disctale-key = { version = "0.1.0", path = "../disctale-key" }
+hound = "3.5"
+serde_json = "1.0"
+sha2 = "0.10"

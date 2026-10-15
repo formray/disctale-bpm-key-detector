@@ -1,0 +1,20 @@
+[package]
+name = "disctale-beat"
+description = "Beat This! (CPJKU, JKU Linz) beat tracker in pure Rust, with a rule from beats to one BPM that abstains when the tempo is not steady."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+# Beat This! is MIT; this port keeps its notice and its licence (LICENSE,
+# PROVENANCE.md).
+license = "MIT"
+readme = "README.md"
+keywords = ["audio", "music", "bpm", "beat-tracking", "tempo"]
+categories = ["multimedia::audio", "science"]
+exclude = ["tests/fixtures"]
+
+[dependencies]
+matrixmultiply = "0.3.11"
+rustfft = "6.4.1"
+thiserror = "2.0"

@@ -1,0 +1,7 @@
+/target
+*.ckpt
+!crates/disctale-beat/tests/fixtures/tiny.ckpt
+*.f32
+*.wav
+*.mp3
+/bench/out
