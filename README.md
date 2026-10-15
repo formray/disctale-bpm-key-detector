@@ -112,6 +112,24 @@ one. **These numbers are the floor**: a change must not go below BPM 94 %
 right with at most 3.5 % double or half and at most 25 % abstentions, and
 key 55 % exact, on either set.
 
+**A larger set: 804 tracks bought on Beatport.** One 30-second clip per
+track, cut at 30 % of its length; two references per track, the key and BPM
+the store writes into the file and the DJ software's analysis of the full
+track. Nothing was tuned on these tracks.
+
+| Values served | All 804 | 354 where store and DJ software agree on the key |
+|---|---|---|
+| BPM right within ±1 of the DJ software, of those given | 782 of 790 (99.0 %) | 346 of 349 (99.1 %) |
+| BPM at double or half | none | none |
+| BPM abstentions | 14 (1.7 %) | 5 (1.4 %) |
+| Key exact against the store, of those given | 173 of 279 (62.0 %) | — |
+| Key exact against the DJ software, of those given | 182 of 279 (65.2 %) | 137 of 160 (85.6 %) |
+| Key abstentions | 525 (65 %) | 194 (55 %) |
+
+Against the store's BPM, 727 of 790 are right: 22 more are at double the
+store's value, all tracks the store lists between 65 and 73 BPM, where the
+DJ software reads the same double tempo we do.
+
 For comparison on the held-out clips: the tempo of `disctale-key` 84 of 89
 (94.4 %, 3 halves); [`bpm-key`](https://crates.io/crates/bpm-key) 0.1.0
 BPM 83 of 96, key 34 of 96; `stratum-dsp` 1.0.0 BPM 73 of 96, key 16 of 96
@@ -123,10 +141,11 @@ for the key. In a Linux container with 1 CPU and 512 MiB, the BPM peaks at
 
 ## Known limits
 
-- **The key reference is weak.** On the held-out tracks with a key written
-  by the store, the DJ software agreed with the store 3 times out of 12. A
-  better key reading cannot be proven against it; a reference written by ear
-  on a sample of clips would be the first step.
+- **The key reference is weak.** On the 804 Beatport tracks the store and
+  the DJ software agree on the key 354 times: on those the key is exact
+  85.6 % of the time it answers; on all 804, 62–65 % depending on the reference.
+  Part of the gap is the reference, not the reading; a reference written by
+  ear on a sample of clips would be the way to tell them apart.
 - **The key abstains often** (about two clips in three): below the margin it
   keeps, its answers were right less than half the time.
 - **Fast tempi can read at half**: the one half in each set is drum and bass

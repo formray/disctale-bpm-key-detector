@@ -129,8 +129,10 @@ fn read_audio(path: &Path, raw_rate: u32) -> Result<(Vec<f32>, u32), String> {
     if !is_wav {
         let bytes = std::fs::read(path).map_err(|e| fail(&e))?;
         let samples = bytes
-            .chunks_exact(4)
-            .map(|c| f32::from_le_bytes([c[0], c[1], c[2], c[3]]))
+            .as_chunks::<4>()
+            .0
+            .iter()
+            .map(|c| f32::from_le_bytes(*c))
             .collect();
         return Ok((samples, raw_rate));
     }
